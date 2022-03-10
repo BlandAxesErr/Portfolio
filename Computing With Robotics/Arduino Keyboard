@@ -1,0 +1,36 @@
+int freq[5] = {0, 262, 294, 330, 349};
+
+
+void setup(){
+Serial.begin(9600);
+}
+
+void loop()
+{
+  int aPin = 0;
+  int keyVal = analogRead(aPin);
+  Serial.println(keyVal);
+
+  if (keyVal == 1023) {
+  	Serial.println("C");
+    tone(8, freq[1]);
+  }
+  if (keyVal == 1001) {
+  	Serial.println("D");
+    tone(8, freq[2]);
+  }
+  
+  if (keyVal == 512) {
+  	Serial.println("E");
+    tone(8, freq[3]);
+  }
+  
+  if (keyVal == 10) {
+  	Serial.println("F");
+    tone(8, freq[4]);
+  }
+  
+  if (keyVal == 0) {
+    noTone(8);
+    }
+}
